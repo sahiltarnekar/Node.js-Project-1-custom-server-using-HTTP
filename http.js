@@ -1,51 +1,51 @@
-const http = require('http')
-const path = require('path')
-const fs = require('fs')
-const PORT = 8399
+const http = require("http");
+const fs = require("fs");
+const path = require("path");
+
+const PORT = 8399;
 
 const app = http.createServer((req, res) => {
   switch (req.url) {
-
-    case '/':
-      const homepath = path.join(__dirname, '/src/index.html')
-      fs.readFile(homepath, (err, data) => {
-        err ? console.log(err) : res.end(data)
-      })
+      case "/src/assets/image.png":
+      fs.readFile(path.join(__dirname, "src/assets/image.png"), (e, d) =>
+        e ? console.log(e) : res.end(d)
+      );
+      break;
+    case "/":
+      fs.readFile(path.join(__dirname, "src/index.html"), (e, d) =>
+        e ? console.log(e) : res.end(d)
+      );
       break;
 
-    case '/about':
-      const aboutpath = path.join(__dirname, '/src/about.html')
-      fs.readFile(aboutpath, (err, data) => {
-        err ? console.log(err) : res.end(data)
-      })
+    case "/about":
+      fs.readFile(path.join(__dirname, "src/about.html"), (e, d) =>
+        e ? console.log(e) : res.end(d)
+      );
       break;
 
-    case '/course':
-      const coursepath = path.join(__dirname, '/src/course.html')
-      fs.readFile(coursepath, (err, data) => {
-        err ? console.log(err) : res.end(data)
-      })
+    case "/course":
+      fs.readFile(path.join(__dirname, "src/course.html"), (e, d) =>
+        e ? console.log(e) : res.end(d)
+      );
       break;
 
-    case '/contact':
-      const contectpath = path.join(__dirname, '/src/contect.html')
-      fs.readFile(contectpath, (err, data) => {
-        err ? console.log(err) : res.end(data)
-      })
+    case "/contact":
+      fs.readFile(path.join(__dirname, "src/contect.html"), (e, d) =>
+        e ? console.log(e) : res.end(d)
+      );
       break;
 
-        case '/services':
-      const servicespath = path.join(__dirname, '/src/services.html')
-      fs.readFile(servicespath, (err, data) => {
-        err ? console.log(err) : res.end(data)
-      })
+    case "/services":
+      fs.readFile(path.join(__dirname, "src/services.html"), (e, d) =>
+        e ? console.log(e) : res.end(d)
+      );
       break;
 
     default:
-      res.end("page not found bro ...................")
+      res.end("Page not found");
   }
-})
+});
 
 app.listen(PORT, () =>
-  console.log("server is connected at http://localhost:8399")
-)
+  console.log("Server running at http://localhost:8399")
+);
