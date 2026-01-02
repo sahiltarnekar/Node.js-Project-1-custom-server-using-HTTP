@@ -1,13 +1,32 @@
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
-
 const PORT = 8399;
 
 const app = http.createServer((req, res) => {
   switch (req.url) {
-      case "/src/assets/image.png":
-      fs.readFile(path.join(__dirname, "src/assets/image.png"), (e, d) =>
+      case "/src/assets/img1.png":
+      fs.readFile(path.join(__dirname, "src/assets/img1.png"), (e, d) =>
+        e ? console.log(e) : res.end(d)
+      );
+      break;
+         case "/src/assets/img2.jpg":
+      fs.readFile(path.join(__dirname, "src/assets/img2.jpg"), (e, d) =>
+        e ? console.log(e) : res.end(d)
+      );
+      break;
+         case "/src/assets/img3.jpg":
+      fs.readFile(path.join(__dirname, "src/assets/img3.jpg"), (e, d) =>
+        e ? console.log(e) : res.end(d)
+      );
+      break;
+         case "/src/assets/img4.jpg":
+      fs.readFile(path.join(__dirname, "src/assets/img4.jpg"), (e, d) =>
+        e ? console.log(e) : res.end(d)
+      );
+      break;
+         case "/src/assets/img5.jpg":
+      fs.readFile(path.join(__dirname, "src/assets/img5.jpg"), (e, d) =>
         e ? console.log(e) : res.end(d)
       );
       break;
